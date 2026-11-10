@@ -1,16 +1,3 @@
-# Background Information
-
-This project contains a file hw.csv which contains the Property Transaction price of Kowloon between Nov 2014 to Nov 2020. The data was extracted from the "District
-Latest Deals" from https://data.28hse.com/en/
-
-# Project Workflow
-1. **Import and cleaning data:** Import the data to a pandas dataframe from the data file, clean up the data, check and
-handle missing values, rename column to a more meaningful name, etc.
-2. **Merge Data:** Get another dataset and merge them with this data set. 
-3. **Exploratory Data Analysis:** Do exploratory data analysis and do visualization.
-4. **Learning model:**Apply multiple statistical learning / machine learning to determine what kind of factors impact the property price (distirct / area / floor),which included training vs testing data split, training model. Evaluate and compare the model.
-5. **Findings and Conclusion:** Show the summary of interesting findings and conclusion of analysis
-
 # Kowloon Residential Property Transaction Price Analysis / 九龙住宅物业成交价格分析
 
 This project explores residential property transactions in Kowloon using Python and pandas. It cleans transaction records, combines them with annual Hong Kong economic indicators, summarizes price and transaction patterns, and fits an exploratory ordinary least squares (OLS) model.
@@ -129,9 +116,9 @@ Keep `hw.csv` and `merge_data_hk.csv` in the same directory as the notebook. The
 - The OLS target is `Sell Price`, while `SFA New Price` is calculated as `Sell Price / SFA` and is also used as a predictor. This introduces target leakage, so the reported R² does not establish reliable out-of-sample prediction.
 
   OLS 的目标变量是 `Sell Price`，而 `SFA New Price` 是用 `Sell Price / SFA` 计算出来的，却也被用作预测变量。这造成了目标泄漏，因此报告的 R² 不能证明模型具有可靠的样本外预测能力。
-- Although the notebook creates a test split, it does not report metrics on the held-out test rows. District and estate IDs are also treated as numeric values rather than categorical variables.
+- District and estate IDs are also treated as numeric values rather than categorical variables.
 
-  虽然 Notebook 划分了测试集，但没有报告留出测试数据上的评估指标。此外，地区和屋苑 ID 被当作数值而不是类别变量处理。
+  地区和屋苑 ID 被当作数值而不是类别变量处理。
 - The notebook's “Top 20 Estates by Average SFA/GFA” code sorts ascending and selects the first 20 rows, which selects the smallest averages rather than the largest. Those charts and captions should be checked before reusing them.
 
   Notebook 中“平均 SFA/GFA 最高的 20 个屋苑”相关代码按升序排序后取前 20 行，实际选出的是均值较小的屋苑。再次使用这些图表和图注前应先核对。
